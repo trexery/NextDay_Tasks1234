@@ -1,3 +1,4 @@
+
 package ee.ut.cs.swt.nextdate;
 
 import org.junit.Test;
