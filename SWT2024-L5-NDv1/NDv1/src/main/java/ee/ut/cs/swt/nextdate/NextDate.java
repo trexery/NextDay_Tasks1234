@@ -59,15 +59,15 @@ public class NextDate {
 		else if(isDecember(month))
 		{
 			// To fix "Fault 1", uncomment the correct line 63 and comment out the incorrect line 62.
-			if(day <= 31) //if the day is not 31, just increment the day
-//			if (day < 31) //if the day is not 31, just increment the next day
+			//if(day <= 31) //if the day is not 31, just increment the day
+			if (day < 31) //if the day is not 31, just increment the next day
 				tomorrowDay = day +1;
 			else { //day is 31, reset the day and month to 1 and increment the year
 				tomorrowDay = 1;
 				tomorrowMonth = 1;
 			// To fix "Fault 2", uncomment the correct line 70 and comment out the incorrect line 69
-				if(year == 2022) //make sure the next year is within the permissible range
-				//if(year == 2021) //make sure the next year is within the permissible range
+				//if(year == 2022) //make sure the next year is within the permissible range
+				if(year == 2021) //make sure the next year is within the permissible range
 					return "Invalid Next Year";
 				else  //it was a permissible year - go ahead and increment the year
 					tomorrowYear = year +1;
@@ -82,21 +82,21 @@ public class NextDate {
 			else {
 				if(day == 28) {  //if this is not a leap year, reset day and increment the day
 					// step 1. to enable leap year functionality , uncomment lines 85-87 and 90
-//					if(isLeapYear(year)) //was a leap year
-//						tomorrowDay = 29;
-//					else {  //was not a leap year
+					if(isLeapYear(year)) //was a leap year
+						tomorrowDay = 29;
+					else {  //was not a leap year
 						tomorrowDay = 1;
 						tomorrowMonth = 3;
-//					}
+					}
 				}
 				else if(day == 29){ //29th date of February
 					// step 2. To enable leap year functionality , uncomment lines 94-97 and 99
-//					if(isLeapYear(year)){  //AND a leap year - reset the day to 1, month to 3
-//						tomorrowDay = 1;
-//						tomorrowMonth = 3;
-//					}
+					if(isLeapYear(year)){  //AND a leap year - reset the day to 1, month to 3
+						tomorrowDay = 1;
+						tomorrowMonth = 3;
+					}
 					// To seed "Fault 4", comment out the lines 99-100
-//					else
+					else
 						return "Invalid Input Date";
 				}
 				//
@@ -181,13 +181,13 @@ public class NextDate {
 	 */
 
 	// To enable leap year functionality, first uncomment the lines starting from 184-190, and then perform the following two steps step 1: uncomment lines 85-87 and 90, step 2: uncomment lines 94-97 and 99
-//	private static boolean isLeapYear(int year)
-//	{
-//		if((year % 100) == 0)
-//			return (year % 400) == 0;
-//		else
-//			return (year % 4) == 0;
-//	}
+	private static boolean isLeapYear(int year)
+	{
+		if((year % 100) == 0)
+			return (year % 400) == 0;
+		else
+			return (year % 4) == 0;
+	}
 
 }
 
